@@ -13,9 +13,9 @@ The motivation for this project stems from my interest in world events and what 
 * Selecting a specific hashtag displays a list of the latest tweets using that hashtag.
 * Selecting a specific trending Tweet displays the Tweet itself, with relevant information about it (likes, shares, retweets)
 
-### Wireframes
+### Wireframe
 
-![Wireframe](./screenshots/wireframe.png)
+![Wireframe](./assets/wireframe.jpeg)
 
 ##### Architecture and Technologies
 
