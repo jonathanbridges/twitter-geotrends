@@ -15,7 +15,7 @@ The motivation for this project stems from my interest in world events and what 
 
 ### Wireframe
 
-![Wireframe](./assets/wireframe.jpeg)
+<img src="https://raw.githubusercontent.com/jonathanbridges/twitter-geotrends/master/assets/Wireframe.png" alt="wireframe" width="100%" height="auto" />
 
 ##### Architecture and Technologies
 
