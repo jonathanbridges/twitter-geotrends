@@ -1,0 +1,28 @@
+{
+  "name": "twitter-geotrends",
+  "version": "1.0.0",
+  "description": "## Overview",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "server": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jonathanbridges/twitter-geotrends.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jonathanbridges/twitter-geotrends/issues"
+  },
+  "homepage": "https://github.com/jonathanbridges/twitter-geotrends#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "router": "^1.3.3"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  }
+}
