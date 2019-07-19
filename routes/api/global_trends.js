@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const keys = require("../../config/keys");
 const axios = require("axios");
+const bodyParser = require('body-parser');
 
 const locIds = {
   SanFrancisco: 2487956,
@@ -26,7 +27,7 @@ router.get('/global_trends', (req, res) => {
   getTrends().then(data => {
     res.json({
       message: "Request received!",
-      data
+      data: data[0].trends
     })
   })
 
