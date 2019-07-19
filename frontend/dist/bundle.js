@@ -90,11 +90,10 @@
 /*!****************!*\
   !*** ./app.js ***!
   \****************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ \"./node_modules/axios/index.js\");\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);\n\n\nconsole.log('this is coming from app.js');\n\nlet trends = [];\n\nconst fetchTrends = () => {\n  let url = '/api/global_trends/global_trends'\n  return axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(url)\n    .then(res => trends = trends.concat(res.data.data))\n};\n\nfetchTrends().then(data => console.log(trends));\n\n\n//# sourceURL=webpack:///./app.js?");
+eval("const axios = __webpack_require__(/*! axios */ \"./node_modules/axios/index.js\");\n\nconsole.log('this is coming from app.js');\n\nlet trends = [];\n\nconst fetchTrends = () => {\n  let url = '/api/global_trends/'\n  return axios.get(url)\n    .then(res => trends = trends.concat(res.data.data))\n};\n\n// fetchTrends().then(data => console.log(trends));\n\n// d3 information\n\nfetchTrends()\n\n// const center = {x: width / 2, y: height / 2};\n// const forceStrength = 0.03;\n\n// const simulation = d3.forceSimulation()\n//   .velocityDecay(0.2)\n//   .force('x', d3.forceX().strength(forceStrength).x(center.x))\n//   .force('y', d3.forceY().strength(forceStrength).y(center.y))\n//   .force('charge', d3.forceManyBody().strength(charge))\n//   .on('tick', ticked);\n\n// simulation.nodes(trends);\n// simulation.force('center', d3.forceCenter(width / 2, height / 2));\n\n//# sourceURL=webpack:///./app.js?");
 
 /***/ }),
 

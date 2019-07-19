@@ -15,9 +15,9 @@ const locIds = {
 
 // router.get("/test", (req, res) => res.json({ msg: "This is the global trends route" }));
 
-router.get('/global_trends', (req, res) => {
+router.get('/', (req, res) => {
 
-  const getTrends = (locId = 2487956) => {
+  const getTrends = (locId = 1) => {
     let url = `https://api.twitter.com/1.1/trends/place.json?id=${locId}`;
     let token = keys.twitterToken;
     return axios.get(url, { headers: { "Authorization": `Bearer ${token}` } })
