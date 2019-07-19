@@ -81,11 +81,11 @@ a, a:visited, a:active {
   margin-top: 10px;
 }
 
-/* .year {
+.name {
   font-size: 21px;
   fill: #aaa;
   cursor: default;
-} */
+}
 
 .tooltip {
 	position: absolute;
@@ -103,9 +103,9 @@ a, a:visited, a:active {
 	z-index: 10;
 }
 
-/* .tooltip .title {
+.tooltip .title {
 	font-size: 13px;
-} */
+}
 
 .tooltip .name {
   font-size: 13px;
