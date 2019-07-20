@@ -50,7 +50,7 @@ function floatingTooltip(tooltipId, width) {
   function showTooltip(content, event) {
     // debugger
     tt.style('opacity', 1.0)
-      .html(content);
+      .append(content);
 
     updatePosition(event, tt);
   }
@@ -72,7 +72,7 @@ function floatingTooltip(tooltipId, width) {
     let yOffset = 10;
 
     let ttw = tt.style('width', '100%');
-    let tth = tt.style('height', '100%');
+    let tth = tt.style('height', '200px');
 
     // debugger
     let wscrY = window.scrollY;
@@ -189,14 +189,15 @@ function bubbleChart() {
       .domain([0, maxAmount]);
 
     // Use map() to convert raw data into node data.
-    let myNodes = rawData.map(function (d) {
+    let myNodes = rawData.map((d, index) => {
       // // debugger
       if (d.tweet_volume === null) {
         d.tweet_volume = 25000
       }
 
+      // debugger
       return {
-        id: d.id,
+        id: index,
         radius: radiusScale(d.tweet_volume),
         value: d.tweet_volume,
         name: d.name,
@@ -239,7 +240,9 @@ function bubbleChart() {
 
     // Bind nodes data to what will become DOM elements to represent them.
     bubbles = svg.selectAll('.bubble')
-      .data(nodes, function (d) { return d.id; });
+      .data(nodes, function (d) { 
+        return d.id; 
+      });
 
       // .data(nodes, function (d) { return d.index; });
 
@@ -306,6 +309,7 @@ function bubbleChart() {
    * Hides Name displays.
    */
   function hideNames() {
+    // debugger
     svg.selectAll('.name').remove();
   }
 
@@ -336,12 +340,13 @@ function bubbleChart() {
    */
   function showDetail(d) {
     // change outline to indicate hover state.
-    // debugger
     d3.select(this).attr('stroke', 'black');
     let content = '<span class="name">Trending: </span><span class="value">' +
       d.name + '</span><br/>';
+
+    d3.select(this).append("text")
       
-    tooltip.showTooltip(content, d3.event);
+    // tooltip.showTooltip(content, d3.event);
   }
 
   /*
