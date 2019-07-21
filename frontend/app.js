@@ -175,6 +175,13 @@ function bubbleChart() {
       .attr('stroke-width', 2)
       .on('mouseover', showDetail)
       .on('mouseout', hideDetail)
+      .on('click', function (d) {
+        console.log('open tab')
+        window.open(
+          d.url,
+          '_blank' // <- This is what makes it open in a new window.
+        );
+      });
 
     // @v4 Merge the original empty selection and the enter selection
     bubbles = bubbles.merge(bubblesE);
@@ -238,8 +245,6 @@ function bubbleChart() {
     d3.select(this).attr('stroke', 'black');
     let content = '<span class="name">Trending: </span><span class="value">' +
       d.name + '</span><br/>' +
-                  '<span class="name">Link: </span><span class="value">' +
-      d.url + '</span><br/>' +
                   '<span class="name">Tweet Volume: </span><span class="value">' +
       d.value + '</span>';
 
