@@ -13,13 +13,15 @@
 
 <body>
   <header> 
-    <div class="logo">Logo</div>
-    <div class="header-text">HeaderText</div>
+    <div class="logo">Trending on Twitter</div>
+    <div class="header-text"><span class="location">Global</span> Trends:</div>
     <div class="links">Links</div>
   </header>
 
   <main>
     <section class="regions-wrapper">
+      <large>Currently viewing <span class="location">Global</span> Trends</large>
+      <small><span>Click below </span>to view Trends for a specific city:</small>
       <button class="btn-region">San Francisco</button>
       <button class="btn-region">Montreal</button>
       <button class="btn-region">Istanbul</button>
@@ -33,21 +35,19 @@
     </section>
 
     <section class="deets-wrapper">
-      <ul class="deets-ul">Deets
-        <li class="deets-li"></li>
-        <li class="deets-li"></li>
-        <li class="deets-li"></li>
-        <li class="deets-li"></li>
-        <li class="deets-li"></li>
-        <li class="deets-li"></li>      
+      <ul>Details:
+        <li>Each circle represents a current <span>Trend </span>on Twitter</li>
+        <li>A circle's diameter is based off of the <span>Tweet Volume</span> assigned to it, as specified in the Twitter <pre>/trends</pre>API endpoint</li>
+        <li><span>Mouseover </span>any Trend to view its keyword and Tweet Volume</li>
+        <li><span>Click </span>on a Trend to view its thread on Twitter</li>
       </ul>
     </section>
   </main>
 
-  <footer>
+  <!-- <footer>
     <div class="footer-deets">Text</div>
     <div class="footer-deets">PlaceHolder Text</div>
-  </footer>
+  </footer> -->
 
   <script src='https://d3js.org/d3.v5.min.js'></script>
   <script src="./dist/bundle.js"></script>

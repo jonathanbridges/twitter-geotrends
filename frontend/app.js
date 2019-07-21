@@ -77,9 +77,6 @@ function bubbleChart() {
     .domain(['low', 'medium-low', 'medium', 'medium-height', 'high'])
     .range(['#109BF2', '#26E2FF', '#B74567', '#A0B3FF', '#DEFFFC']);
 
-    // 352717
-
-
   /*
    * This data manipulation function takes the raw data from
    * the CSV file and converts it into an array of node objects.
@@ -102,16 +99,14 @@ function bubbleChart() {
     let radiusScale = d3.scalePow()
       .exponent(0.5)
       .range([2, 85])
-      .domain([0, maxAmount]);
+      .domain([0, maxAmount*1.5]);
 
     // Use map() to convert raw data into node data.
     let myNodes = rawData.map((d, index) => {
-      // // debugger
       if (d.tweet_volume === null) {
-        d.tweet_volume = Math.floor(Math.random() * ((maxAmount/2) - 10000 + 1)) + 10000
+        d.tweet_volume = Math.floor(Math.random() * (5000 - 1000 + 1)) + 1000
       }
 
-      // debugger
       return {
         id: index,
         radius: radiusScale(d.tweet_volume),
@@ -245,6 +240,7 @@ function bubbleChart() {
     d3.select(this).attr('stroke', 'black');
     let content = '<span class="name">Trending: </span><span class="value">' +
       d.name + '</span><br/>' +
+
                   '<span class="name">Tweet Volume: </span><span class="value">' +
       d.value + '</span>';
 
