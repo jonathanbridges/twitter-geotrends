@@ -1,5 +1,7 @@
 // const axios = require("axios");
 
+import { floatingTooltip } from './tooltip.js'
+
 console.log('this is coming from app.js');
 
 // let trends = [];
@@ -12,118 +14,30 @@ console.log('this is coming from app.js');
 
 // fetchTrends().then(data => console.log(trends));
 
-// d3 information
 /* bubbleChart creation function. Returns a function that will
  * instantiate a new bubble chart given a DOM element to display
  * it in and a dataset to visualize.
  *
- * Organization and style inspired by:
- * https://bost.ocks.org/mike/chart/
- *
  */
-
-function floatingTooltip(tooltipId, width) {
-  // Local variable to hold tooltip div for
-  // manipulation in other functions.
-  // // debugger
-  let tt = d3.select('body')
-    .append('div')
-    .attr('class', 'tooltip')
-    .attr('id', tooltipId)
-    .style('pointer-events', 'none');
-  // Set a width if it is provided.
-  if (width) {
-    tt.style('width', width);
-  }
-
-  // Initially it is hidden.
-  hideTooltip();
-
-  /*
-   * Display tooltip with provided content.
-   *
-   * content is expected to be HTML string.
-   *
-   * event is d3.event for positioning.
-   */
-
-  function showTooltip(content, event) {
-    // debugger
-    tt.style('opacity', 1.0)
-      .append(content);
-
-    updatePosition(event, tt);
-  }
-
-  /*
-   * Hide the tooltip div.
-   */
-  function hideTooltip() {
-    tt.style('opacity', 0.0);
-  }
-
-  /*
-   * Figure out where to place the tooltip
-   * based on d3 mouse event.
-   */
-  function updatePosition(event, tt) {
-    // debugger
-    let xOffset = 20;
-    let yOffset = 10;
-
-    let ttw = tt.style('width', '100%');
-    let tth = tt.style('height', '200px');
-
-    // debugger
-    let wscrY = window.scrollY;
-    let wscrX = window.scrollX;
-
-    let curX = (document.all) ? event.clientX + wscrX : event.pageX;
-    let curY = (document.all) ? event.clientY + wscrY : event.pageY;
-    let ttleft = ((curX - wscrX + xOffset * 2 + ttw) > window.innerWidth) ?
-      curX - ttw - xOffset * 2 : curX + xOffset;
-
-    if (ttleft < wscrX + xOffset) {
-      ttleft = wscrX + xOffset;
-    }
-
-    let tttop = ((curY - wscrY + yOffset * 2 + tth) > window.innerHeight) ?
-      curY - tth - yOffset * 2 : curY + yOffset;
-
-    if (tttop < wscrY + yOffset) {
-      tttop = curY + yOffset;
-    }
-    // // debugger
-    tt
-      .style('top', tttop + 'px')
-      .style('left', ttleft + 'px');
-  }
-
-  return {
-    showTooltip: showTooltip,
-    hideTooltip: hideTooltip,
-    updatePosition: updatePosition
-  };
-}
 
 function bubbleChart() {
   // Constants for sizing
-  let width = 940;
-  let height = 600;
+  var width = 940;
+  var height = 600;
 
   // tooltip for mouseover functionality
-  let tooltip = floatingTooltip('trends_tooltip', 240);
+  var tooltip = floatingTooltip('gates_tooltip', 240);
 
   // moves bubbles near center
-  let center = { x: width / 2, y: height / 2 };
+  var center = { x: width / 2, y: height / 2 };
 
   // @v4 strength to apply to the position forces
-  let forceStrength = 0.03;
+  var forceStrength = 0.03;
 
   // These will be set in create_nodes and create_vis
-  let svg = null;
-  let bubbles = null;
-  let nodes = [];
+  var svg = null;
+  var bubbles = null;
+  var nodes = [];
 
   // Charge function that is called for each node.
   // As part of the ManyBody force.
@@ -160,8 +74,10 @@ function bubbleChart() {
   // Nice looking colors - no reason to buck the trend
   // @v4 scales now have a flattened naming scheme
   let fillColor = d3.scaleOrdinal()
-    .domain(['low', 'medium', 'high'])
-    .range(['#d84b2a', '#beccae', '#7aa25c']);
+    .domain(['low', 'medium-low', 'medium', 'medium-height', 'high'])
+    .range(['#109BF2', '#26E2FF', '#B74567', '#A0B3FF', '#DEFFFC']);
+
+    // 352717
 
 
   /*
@@ -192,7 +108,7 @@ function bubbleChart() {
     let myNodes = rawData.map((d, index) => {
       // // debugger
       if (d.tweet_volume === null) {
-        d.tweet_volume = 25000
+        d.tweet_volume = Math.floor(Math.random() * ((maxAmount/2) - 10000 + 1)) + 10000
       }
 
       // debugger
@@ -258,7 +174,7 @@ function bubbleChart() {
       .attr('stroke', function (d) { return d3.rgb(fillColor(d.group)).darker(); })
       .attr('stroke-width', 2)
       .on('mouseover', showDetail)
-      .on('mouseout', hideDetail);
+      .on('mouseout', hideDetail)
 
     // @v4 Merge the original empty selection and the enter selection
     bubbles = bubbles.merge(bubblesE);
@@ -314,27 +230,6 @@ function bubbleChart() {
   }
 
   /*
-   * Shows Name displays.
-   */
-  function showNames() {
-    // debugger
-    // Another way to do this would be to create
-    // the name texts once and then just hide them.
-
-    let namesData = d3.keys(namesX);
-    let names = svg.selectAll('.name')
-      .data(namesData);
-
-    names.enter().append('text')
-      .attr('class', 'name')
-      .attr('x', function (d) { return namesX[d]; })
-      .attr('y', 40)
-      .attr('text-anchor', 'middle')
-      .text(function (d) { return d; });
-  }
-
-
-  /*
    * Function called on mouseover to display the
    * details of a bubble in the tooltip.
    */
@@ -342,16 +237,17 @@ function bubbleChart() {
     // change outline to indicate hover state.
     d3.select(this).attr('stroke', 'black');
     let content = '<span class="name">Trending: </span><span class="value">' +
-      d.name + '</span><br/>';
+      d.name + '</span><br/>' +
+                  '<span class="name">Link: </span><span class="value">' +
+      d.url + '</span><br/>' +
+                  '<span class="name">Tweet Volume: </span><span class="value">' +
+      d.value + '</span>';
 
-    d3.select(this).append("text")
-      
-    // tooltip.showTooltip(content, d3.event);
+    tooltip.showTooltip(content, d3.event);
   }
 
-  /*
-   * Hides tooltip
-   */
+  // Hides tooltip
+
   function hideDetail(d) {
     // reset outline
     d3.select(this)
@@ -371,7 +267,6 @@ function bubbleChart() {
 
 const myBubbleChart = bubbleChart();
 
-
 // Function called once data is loaded from Twitter API.
 // Calls bubble chart function to display inside #vis div.
 
@@ -383,23 +278,4 @@ function display(data) {
 // load data
 
 d3.json('/api/global_trends/').then(display);
-
-
-/*
- * Helper function to convert a number into a string
- * and add commas to it to improve presentation.
- */
-// function addCommas(nStr) {
-//   nStr += '';
-//   let x = nStr.split('.');
-//   let x1 = x[0];
-//   let x2 = x.length > 1 ? '.' + x[1] : '';
-//   let rgx = /(\d+)(\d{3})/;
-//   while (rgx.test(x1)) {
-//     x1 = x1.replace(rgx, '$1' + ',' + '$2');
-//   }
-
-//   return x1 + x2;
-// }
-  
 
