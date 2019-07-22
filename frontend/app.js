@@ -2,6 +2,8 @@
 
 import { floatingTooltip } from './tooltip.js'
 
+import { addButtonListeners } from './button.js'
+
 // let trends = [];
 
 // const fetchTrends = () => {
@@ -269,12 +271,10 @@ const myBubbleChart = bubbleChart();
 // Function called once data is loaded from Twitter API.
 // Calls bubble chart function to display inside #vis div.
 
-
-function display(data) {
+export function display(data) {
   myBubbleChart('#vis', data);
 }
 
-// load data
+d3.json('/api/global_trends/1').then(display);
 
-d3.json('/api/global_trends/').then(display);
-
+addButtonListeners();
