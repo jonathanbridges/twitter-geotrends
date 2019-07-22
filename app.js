@@ -7,7 +7,6 @@ const path = require('path');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-// app.get("/", (req, res) => res.send("Hello World"));
 app.use("/api/global_trends", global_trends)
 app.use(express.static('frontend'));
 
