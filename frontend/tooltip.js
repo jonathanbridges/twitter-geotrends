@@ -1,5 +1,3 @@
-console.log('this is coming from tooltip.js')
-
 /*
  * Creates tooltip with provided id that
  * floats on top of visualization.

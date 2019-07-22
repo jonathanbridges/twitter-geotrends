@@ -2,8 +2,6 @@
 
 import { floatingTooltip } from './tooltip.js'
 
-console.log('this is coming from app.js');
-
 // let trends = [];
 
 // const fetchTrends = () => {
