@@ -3,27 +3,14 @@ body {
   color: #109BF2;
 }
 
-header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 1rem 1rem 0 1rem;
-  font-size: 2rem;
-}
-
-.header-text {
-  min-width: 300px;
-  text-align: center;
-}
-
 .location {
   color: #B74F6F;
 }
 
-.links {
+/* .links {
   min-width: 300px;
   text-align: right;
-}
+} */
 
 main {
   display: flex;
@@ -31,37 +18,51 @@ main {
   justify-content: space-between;
   align-items: center;
   padding: 0 1rem;
-  height: 600px;
+  height: 100vh;
 }
 
-.regions-wrapper, .deets-wrapper {
+.regions-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 15%;
-  justify-content: space-evenly;
+  min-width: 20%;
+  justify-content: space-between;
   text-align: center;
+  height: 100vh;
 }
 
-/* .data-wrapper {
+.region-items {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 69%;
   justify-content: space-evenly;
   height: -webkit-fill-available;
+}
+
+.data-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.deets-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-width: 20%;
+  justify-content: center;
+  text-align: left;
+}
+
+.header-text {
+  font-size: 2rem;
+  font-weight: bolder;
+  margin-top: 2rem;
+}
+
+/* .container {
   max-width: 900px;
   margin: auto;
 } */
-
-a, a:visited, a:active {
-  color: #444;
-}
-
-.container {
-  max-width: 900px;
-  margin: auto;
-}
 
 button {
   font-family: 'Raleway', sans-serif;
@@ -75,8 +76,6 @@ button {
   transition: all 0.3s ease 0s;
   cursor: pointer;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
-  margin: .5rem;
-  width: 90%;
 }
 
 button:hover {
@@ -85,16 +84,8 @@ button:hover {
   border-color: #B74F6F;
   transition: all 0.3s ease 0s;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
-
 }
 
-.regions-wrapper small {
-  margin: .5rem;
-}
-
-small {
-  font-size: 0.9rem;
-}
 /* 
 .button.active {
   background: #000;
@@ -103,10 +94,8 @@ small {
 
 
 #vis {
-  width: 940px;
-  height: 600px;
-  clear: both;
-  margin-bottom: 10px;
+  min-width: 60%;
+  height: 100vh;
 }
 
 #toolbar {

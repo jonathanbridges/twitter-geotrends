@@ -99,7 +99,7 @@ function bubbleChart() {
     let radiusScale = d3.scalePow()
       .exponent(0.5)
       .range([2, 85])
-      .domain([0, maxAmount*1.5]);
+      .domain([0, maxAmount]);
 
     // Use map() to convert raw data into node data.
     let myNodes = rawData.map((d, index) => {
