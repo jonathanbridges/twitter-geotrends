@@ -12,36 +12,26 @@
 </head>
 
 <body>
-  <header> 
-    <div class="header-text">Trending on Twitter</div>
-    <div class="header-text"><span class="location">Global</span> Trends:</div>
-    <div class="links">Links</div>
-  </header>
 
   <main>
     <section class="deets-wrapper">
-      <div class="header-text">Twitter GeoTrends</div>
-      <ul>Information:
+      <ul>
+        <li>Information:</li>
         <li>Each circle represents a current <span>Trend </span>on Twitter.</li>
-        <li>A circle's diameter is based off of the <span>Tweet Volume</span> assigned to it, as specified in the Twitter
-          <code>/trends</code> API endpoint</li>
-        <li><span>Mouseover </span>any Trend to view its keyword and Tweet Volume</li>
-        <li><span>Click </span>on a Trend to view its thread on Twitter</li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
+        <li>A circle's diameter is based off of its <span>Tweet Volume</span>, as assigned by Twitter's
+          <code>/trends</code> algorithm</li>
+        <li><span>Mouseover </span>any circle to view its Trend and Tweet Volume</li>
+        <li><span>Click </span>on a circle to view it directly on Twitter</li>
+        <li><span>Select </span> any button on the right-hand side of the page to filter results for a city</li>
       </ul>
       <div></div>
     </section>
 
     <section class="data-wrapper" id="vis">
-      <div class="header-text"><span class="location">Global</span> Trends:</div>
+      <div class="header-text"><span class="location">Global</span> Twitter Trends:</div>
     </section>
 
     <section class="regions-wrapper">
-      <div class="header-text">City Selector</div>
         <div class="region-items">
           <large>Currently viewing <span class="location">Global</span> Trends.</large>
           <large>Click below to view Trends for a specific city:</large>
