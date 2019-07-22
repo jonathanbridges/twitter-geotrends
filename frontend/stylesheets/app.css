@@ -75,6 +75,9 @@ main {
   font-size: 2rem;
   font-weight: bolder;
   margin-top: 2rem;
+  opacity: 1;
+  -webkit-transition: opacity 1000ms linear;
+  transition: opacity 1000ms linear;
 }
 
 button {

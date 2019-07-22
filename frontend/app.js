@@ -1,24 +1,5 @@
-// const axios = require("axios");
-
 import { floatingTooltip } from './tooltip.js'
-
 import { addButtonListeners } from './button.js'
-
-// let trends = [];
-
-// const fetchTrends = () => {
-//   let url = '/api/global_trends/'
-//   return axios.get(url)
-//     .then(res => trends = trends.concat(res.data.data))
-// };
-
-// fetchTrends().then(data => console.log(trends));
-
-/* bubbleChart creation function. Returns a function that will
- * instantiate a new bubble chart given a DOM element to display
- * it in and a dataset to visualize.
- *
- */
 
 function bubbleChart() {
   // Constants for sizing
@@ -104,7 +85,7 @@ function bubbleChart() {
     // Use map() to convert raw data into node data.
     let myNodes = rawData.map((d, index) => {
       if (d.tweet_volume === null) {
-        d.tweet_volume = Math.floor(Math.random() * (5000 - 1000 + 1)) + 1000
+        d.tweet_volume = Math.floor(Math.random() * ((maxAmount/6) - 1000 + 1)) + 1000
       }
 
       return {
@@ -222,7 +203,6 @@ function bubbleChart() {
     // @v4 We can reset the alpha value and restart the simulation
     simulation.alpha(1).restart();
   }
-
   /*
    * Hides Name displays.
    */
@@ -240,7 +220,6 @@ function bubbleChart() {
     d3.select(this).attr('stroke', 'black');
     let content = '<span class="name">Trending: </span><span class="value">' +
       d.name + '</span><br/>' +
-
                   '<span class="name">Tweet Volume: </span><span class="value">' +
       d.value + '</span>';
 
