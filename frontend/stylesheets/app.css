@@ -1,16 +1,21 @@
 body {
   font-family: 'Raleway', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
   color: #109BF2;
+  line-height: 1.1;
+  -webkit-font-smoothing: antialiased;
 }
 
 .location {
   color: #B74F6F;
+  font-weight: bolder;
 }
 
-/* .links {
-  min-width: 300px;
-  text-align: right;
-} */
+span {
+  color: #B74F6F;
+  font-weight: bold;
+}
 
 main {
   display: flex;
@@ -39,18 +44,29 @@ main {
   height: -webkit-fill-available;
 }
 
-.data-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.region-items > large {
+  margin-bottom: -1rem;
 }
 
 .deets-wrapper {
   display: flex;
   flex-direction: column;
+  align-items: center;
   min-width: 20%;
-  justify-content: center;
-  text-align: left;
+  justify-content: space-between;
+  text-align: center;
+  height: 100vh;
+}
+
+.deets-wrapper .header-text {
+  width: max-content;
+  align-self: baseline;
+}
+
+.data-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .header-text {
@@ -59,14 +75,9 @@ main {
   margin-top: 2rem;
 }
 
-/* .container {
-  max-width: 900px;
-  margin: auto;
-} */
-
 button {
   font-family: 'Raleway', sans-serif;
-  font-weight: bold;
+  font-weight: bolder;
   color: #1DA1F2;
   text-transform: uppercase;
   padding: .3rem 1rem;
@@ -86,12 +97,24 @@ button:hover {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
 }
 
-/* 
-.button.active {
-  background: #000;
-  color: #fff;
-} */
+.bubble {
+  cursor: pointer;
+}
 
+ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  height: -webkit-fill-available;
+}
+
+code { 
+  background: #f4f4f4;
+  border: 1px solid #ddd;
+  color: #666;
+  font-size: .9rem;
+}
 
 #vis {
   min-width: 60%;
@@ -102,33 +125,31 @@ button:hover {
   margin-top: 10px;
 }
 
-.name {
-  font-size: 21px;
-  fill: #aaa;
-  cursor: default;
-}
-
 .tooltip {
 	position: absolute;
 	top: 100px;
 	left: 100px;
   -moz-border-radius:5px;
 	border-radius: 5px;
-  border: 2px solid #000;
+  border: 2px solid #35281D;
   background: #fff;
 	opacity: .9;
-  color: black;
+  color: #35281D;
 	padding: 10px;
-	width: 300px;
-	font-size: 12px;
+	width: fit-content;
+	font-size: .8rem;
 	z-index: 10;
 }
 
 .tooltip .title {
-	font-size: 13px;
+	font-size: 1rem;
 }
 
 .tooltip .name {
-  font-size: 13px;
+  font-size: .8rem;
   font-weight: bold;
+}
+
+.tooltip span {
+  color: #35281D;
 }

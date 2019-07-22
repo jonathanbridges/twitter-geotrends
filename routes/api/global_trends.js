@@ -10,7 +10,8 @@ const locIds = {
   Istanbul: 2344116,
   SaoPaulo: 455827,
   London: 44418,
-  Sydney: 1105779
+  Sydney: 1105779,
+  NewYork: 2459115
 }
 
 // router.get("/test", (req, res) => res.json({ msg: "This is the global trends route" }));

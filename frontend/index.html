@@ -12,22 +12,28 @@
 </head>
 
 <body>
-  <!-- <header> 
-    <div class="logo">Trending on Twitter</div>
+  <header> 
+    <div class="header-text">Trending on Twitter</div>
     <div class="header-text"><span class="location">Global</span> Trends:</div>
     <div class="links">Links</div>
-  </header> -->
+  </header>
 
   <main>
     <section class="deets-wrapper">
-      <div class="links">Links</div>
-      <ul>
-        <li>Each circle represents a current <span>Trend </span>on Twitter</li>
+      <div class="header-text">Twitter GeoTrends</div>
+      <ul>Information:
+        <li>Each circle represents a current <span>Trend </span>on Twitter.</li>
         <li>A circle's diameter is based off of the <span>Tweet Volume</span> assigned to it, as specified in the Twitter
-          <pre>/trends</pre>API endpoint</li>
+          <code>/trends</code> API endpoint</li>
         <li><span>Mouseover </span>any Trend to view its keyword and Tweet Volume</li>
         <li><span>Click </span>on a Trend to view its thread on Twitter</li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
       </ul>
+      <div></div>
     </section>
 
     <section class="data-wrapper" id="vis">
@@ -40,11 +46,12 @@
           <large>Currently viewing <span class="location">Global</span> Trends.</large>
           <large>Click below to view Trends for a specific city:</large>
           <button class="btn-region">San Francisco</button>
-          <button class="btn-region">Montreal</button>
+          <button class="btn-region">Montréal</button>
           <button class="btn-region">Istanbul</button>
-          <button class="btn-region">Sao Paulo</button>
+          <button class="btn-region">São Paulo</button>
           <button class="btn-region">London</button>
           <button class="btn-region">Sydney</button>
+          <button class="btn-region">New York</button>
         </div>
         <div></div>
     </section>
