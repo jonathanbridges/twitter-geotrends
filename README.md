@@ -18,9 +18,10 @@ The motivation for this project stems from my interest in world events and what 
 
 ##### Architecture and Technologies
 
-* Vanilla JS for game logic.
-* D3 for data visualization
-  * Justification
+* Vanilla JS, HTML5, CSS3
+  * Primary logic and design
+* d3
+  * Data visualization
 * Node.js 
   * Avoid CORS issues for calls to the Twitter `Trends` and `Search` API endpoints
 
