@@ -8,10 +8,9 @@ The motivation for this project stems from my interest in world events and what 
 
 ### Functionality and MVP Features
 
-* Visitors are presented with a chart of of globally trending hashtags and tweets.
-* Selecting a region updates the data.
-* Selecting a specific hashtag displays a list of the latest tweets using that hashtag.
-* Selecting a specific trending Tweet displays the Tweet itself, with relevant information about it (likes, shares, retweets)
+* Visitors are presented with a bubblechart of of globally trending hashtags and tweets.
+* Selecting a city sorts the data.
+* Selecting a specific item displays the thread on Twitter.
 
 ### Wireframe
 
@@ -28,29 +27,13 @@ The motivation for this project stems from my interest in world events and what 
 ### Development timeline
 
 ##### Weekend:
-- [x] Set up BE and make successful requests to the Twitter API endpoints.
-- [x] PlaceHolder.
+- [x] Set up repo and project workspace 
+- [x] Set up Express BE and make successful requests to the Twitter API endpoints
 
 ##### Day 1:
-- [x] PlaceHolder.
-- [x] PlaceHolder.
+- [x] Complete d3 bubble chart tutorial
+- [x] Integrate Twitter Trends invformation into d3
 
 ##### Day 2:
-- [x] PlaceHolder.
-- [x] PlaceHolder.
-
-##### Day 3:
-- [x] PlaceHolder.
-- [x] PlaceHolder.
-
-##### Day 4:
-- [x] PlaceHolder.
-- [x] PlaceHolder.
-
-##### Day 5:
-- [x] PlaceHolder.
-
-### Bonus features
-* PlaceHolder.
-  * Item 1.
-  * Item 2.
+- [x] HTML/CSS
+- [x] Fix Bugs
