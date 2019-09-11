@@ -33,7 +33,7 @@ The motivation for this project stems from my interest in world events and what 
 
 ##### Day 1:
 - [x] Complete d3 bubble chart tutorial
-- [x] Integrate Twitter Trends invformation into d3
+- [x] Integrate Twitter Trends information into d3
 
 ##### Day 2:
 - [x] HTML/CSS
