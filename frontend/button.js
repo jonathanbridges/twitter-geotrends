@@ -50,18 +50,13 @@ import { display } from './app.js'
 
 const menu = document.getElementById("change_chart");
 
-const drawStuff = (event) => {
-  if (menu.value == '1') {
-    console.log("Global Has Loaded")
-    d3.json('/api/global_trends/1').then(display);
-  } else if (menu.value == '2487956') {
-    console.log("San Francisco has loaded")
-    d3.json('/api/global_trends/2487956').then(display);
-  } else if (menu.value == '2459115') {
-    console.log("New York has loaded");
-    d3.json('/api/global_trends/2459115').then(display);
-  }
+const dropDown = (event) => {
+
+  document.getElementById("vis").innerHTML = "";
+  d3.json(`/api/global_trends/${menu.value}`).then(display);
+  console.log(`${menu.value} has loaded`)
+
 }
 
-menu.addEventListener("change", drawStuff);
+menu.addEventListener("change", dropDown);
 
