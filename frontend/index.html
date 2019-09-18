@@ -32,7 +32,7 @@
     </section>
 
     <section class="regions-wrapper">
-        <div class="region-items">
+        <!-- <div class="region-items">
           <large>Currently viewing <span id="location">Global</span> Trends.</large>
           <large>Click below to view Trends for a specific city:</large>
           <button id="btn-sf">San Francisco</button>
@@ -43,10 +43,36 @@
           <button id="btn-syd">Sydney</button>
           <button id="btn-ny">New York</button>
         </div>
-        <div></div>
+        <div></div> -->
+      <select id="change_chart">
+        <option value="1" selected>Global</option>
+        <option value="2487956">San Francisco</option>
+        <option value="2459115">New York</option>
+      </select>
     </section>
 
   </main>
+
+  <!-- <script>
+
+    var menu = document.getElementById("change_chart");
+        
+    drawStuff = (event) => {
+      if (menu.value == '1') {
+        //do something
+        alert(1)
+      } else if (menu.value == '2487956') {
+        //do something
+        alert(2)
+      } else if (menu.value == '2459115') {
+        //do something
+        alert(3)
+      }
+    }
+  
+    menu.addEventListener("change", drawStuff);
+
+  </script> -->
 
   <script src='https://d3js.org/d3.v5.min.js'></script>
   <script src="./dist/bundle.js"></script>

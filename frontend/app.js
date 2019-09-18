@@ -1,5 +1,6 @@
 import { floatingTooltip } from './tooltip.js'
-import { addButtonListeners } from './button.js'
+// import { addButtonListeners } from './button.js'
+import { listener } from './button.js'
 
 function bubbleChart() {
   // Constants for sizing
@@ -256,4 +257,6 @@ export function display(data) {
 
 d3.json('/api/global_trends/1').then(display);
 
-addButtonListeners();
+
+// addButtonListeners();
+
