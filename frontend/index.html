@@ -16,27 +16,13 @@
 </head>
 
 <body>
+  <header>
+    <h1>Twitter GeoTrends</h1>
 
-  <main>
-    <section class="deets-wrapper">
-      <ul>
-        <li>Information:</li>
-        <li>Each circle represents a current <span>Trend </span>on Twitter</li>
-        <li>A circle's diameter is based off of its <span>Tweet Volume</span>, as assigned by Twitter's
-          <code>/trends</code> algorithm</li>
-        <li><span>Mouseover </span>any circle to view its Trend and Tweet Volume</li>
-        <li><span>Click </span>on a circle to view it directly on Twitter</li>
-        <li><span>Select </span> any button on the right-hand side of the page to filter results for a city</li>
-      </ul>
-      <div></div>
-    </section>
+    <div class="city-select">
+      <label for="change-chart">Select City: </label>
 
-    <section class="data-wrapper" id="vis">
-      <div class="header-text"><span class="location">Global</span> Twitter Trends:</div>
-    </section>
-
-    <section class="regions-wrapper">
-      <select class="select-btn" id="change_chart">
+      <select class="select-btn" id="change-chart">
         <option value="1" selected>Global</option>
         <option value="2487956">San Francisco</option>
         <option value="2459115">New York</option>
@@ -116,10 +102,25 @@
         <option value="2344116">İstanbul</option>
         <option value="2343732">Ankara</option>
         <option value="2348079">Auckland</option>
-
-        
       </select>
+
+    </div>
+  </header>
+
+  <main>
+    <section class="deets-wrapper">
+      <h2>Legend</h2>
+      <ul>
+      <li>Each circle represents a current <span>Trend </span>on Twitter.</li>
+      <li>A circle's diameter is based off of its <span>Tweet Volume</span>, as assigned by Twitter's
+      <code>/trends</code> algorithm.</li>
+      <li>1) <span>Select </span> a city from the dropdown on the upper right-hand side of the page.</li>
+      <li>2) <span>Mouseover </span>any circle to view its Trend and Tweet Volume.</li>
+      <li>3) <span>Click </span>on a circle to view it directly on Twitter.</li>
+      </ul>
     </section>
+
+    <section class="data-wrapper" id="vis"></section>
 
   </main>
 
