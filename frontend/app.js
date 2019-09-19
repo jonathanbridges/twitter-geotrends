@@ -3,9 +3,14 @@ import { floatingTooltip } from './tooltip.js'
 import { listener } from './button.js'
 
 function bubbleChart() {
+
   // Constants for sizing
-  var width = 940;
-  var height = 600;
+  // var width = 940;
+  var width = document.getElementsByClassName("data-wrapper")[0].clientWidth;
+
+  // var height = 600;
+  var height = document.getElementsByClassName("data-wrapper")[0].clientHeight/.9;
+
 
   // tooltip for mouseover functionality
   var tooltip = floatingTooltip('gates_tooltip', 240);
