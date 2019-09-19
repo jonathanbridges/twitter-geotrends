@@ -16,7 +16,7 @@
 </head>
 
 <body>
-  <header>
+  <aside>
     <h1>Twitter GeoTrends</h1>
 
     <div class="city-select">
@@ -105,22 +105,25 @@
       </select>
 
     </div>
-  </header>
 
-  <main>
-    <section class="deets-wrapper">
+    <div class="deets-wrapper">
       <h2>Legend</h2>
       <ul>
-      <li>Each circle represents a current <span>Trend </span>on Twitter.</li>
-      <li>A circle's diameter is based off of its <span>Tweet Volume</span>, as assigned by Twitter's
-      <code>/trends</code> algorithm.</li>
-      <li>1) <span>Select </span> a city from the dropdown on the upper right-hand side of the page.</li>
-      <li>2) <span>Mouseover </span>any circle to view its Trend and Tweet Volume.</li>
-      <li>3) <span>Click </span>on a circle to view it directly on Twitter.</li>
+        <li>Each bubble represents a current <span>Trend </span>on Twitter.</li>
+        <li>A bubble's diameter is based off of its <span>Tweet Volume</span>, as assigned by Twitter's
+          <code>/trends</code> algorithm.</li>
+        <li>1) <span>Select </span> a city from the dropdown above.</li>
+        <li>2) <span>Mouseover </span>any bubble to view its Trend and Tweet Volume.</li>
+        <li>3) <span>Click </span>on a bubble to view it directly on Twitter.</li>
       </ul>
-    </section>
+    </div>
 
-    <section class="data-wrapper" id="vis">
+  </aside>
+
+  <main>
+
+    <section class="data-wrapper">
+      <div id="vis"></div>
     </section>
 
   </main>

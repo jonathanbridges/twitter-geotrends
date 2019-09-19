@@ -9,7 +9,7 @@ function bubbleChart() {
   var width = document.getElementsByClassName("data-wrapper")[0].clientWidth;
 
   // var height = 600;
-  var height = document.getElementsByClassName("data-wrapper")[0].clientHeight/.9;
+  var height = document.getElementsByClassName("data-wrapper")[0].clientHeight;
 
 
   // tooltip for mouseover functionality
