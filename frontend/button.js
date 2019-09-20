@@ -1,7 +1,11 @@
 // Button Functions
+
 import { display } from './app.js'
 
 const menu = document.getElementById("change-chart");
+
+// This function queries the Twitter API when 
+// a selection has been made from the dropdown menu
 
 export const dropDown = (event) => {
 
