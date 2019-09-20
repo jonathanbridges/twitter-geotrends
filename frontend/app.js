@@ -1,8 +1,13 @@
 import { floatingTooltip } from './tooltip.js'
-// import { addButtonListeners } from './button.js'
-import { listener } from './button.js'
+import { dropDown } from './button.js'
 
 function bubbleChart() {
+
+  d3.selection.prototype.moveToFront = function () {
+    return this.each(function () {
+      this.parentNode.appendChild(this);
+    });
+  };
 
   // Constants for sizing
   // var width = 940;
@@ -41,7 +46,7 @@ function bubbleChart() {
   // @v4 Before the charge was a stand-alone attribute
   //  of the force layout. Now we can use it as a separate force!
   function charge(d) {
-    return -Math.pow(d.radius, 2.0) * forceStrength;
+    return -Math.pow(d.radius, 2) * forceStrength;
   }
 
   // Here we create a force layout and
@@ -97,6 +102,7 @@ function bubbleChart() {
       return {
         id: index,
         radius: radiusScale(d.tweet_volume),
+        originalRadius: radiusScale(d.tweet_volume),
         value: d.tweet_volume,
         name: d.name,
         url: d.url,
@@ -158,7 +164,6 @@ function bubbleChart() {
       .on('mouseover', showDetail)
       .on('mouseout', hideDetail)
       .on('click', function (d) {
-        console.log('open tab')
         window.open(
           d.url,
           '_blank' // <- This is what makes it open in a new window.
@@ -213,7 +218,6 @@ function bubbleChart() {
    * Hides Name displays.
    */
   function hideNames() {
-    // debugger
     svg.selectAll('.name').remove();
   }
 
@@ -223,10 +227,18 @@ function bubbleChart() {
    */
   function showDetail(d) {
     // change outline to indicate hover state.
-    d3.select(this).attr('stroke', 'black');
+    
+    d3.select(this)
+    .moveToFront()
+    .attr('stroke', 'black')
+    .transition()
+    .duration(300)
+    .style("opacity", 1.0)
+    .attr("r", d.radius*1.25);
+
     let content = '<span class="name">Trending: </span><span class="value">' +
       d.name + '</span><br/>' +
-                  '<span class="name">Tweet Volume: </span><span class="value">' +
+                  '<span class="  name">Tweet Volume: </span><span class="value">' +
       d.value + '</span>';
 
     tooltip.showTooltip(content, d3.event);
@@ -237,7 +249,11 @@ function bubbleChart() {
   function hideDetail(d) {
     // reset outline
     d3.select(this)
-      .attr('stroke', d3.rgb(fillColor(d.group)).darker());
+      .attr('stroke', d3.rgb(fillColor(d.group)).darker())
+      .transition()
+      .duration(200)
+      .attr("r", d.originalRadius)
+      .style("opacity", .9);
 
     tooltip.hideTooltip();
   }
@@ -261,7 +277,3 @@ export function display(data) {
 }
 
 d3.json('/api/global_trends/1').then(display);
-
-
-// addButtonListeners();
-

@@ -3,7 +3,7 @@ import { display } from './app.js'
 
 const menu = document.getElementById("change-chart");
 
-const dropDown = (event) => {
+export const dropDown = (event) => {
 
   document.getElementById("vis").innerHTML = "";
   d3.json(`/api/global_trends/${menu.value}`).then(display);
@@ -12,4 +12,3 @@ const dropDown = (event) => {
 }
 
 menu.addEventListener("change", dropDown);
-
