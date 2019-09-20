@@ -106,7 +106,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"dropDown\", function() { return dropDown; });\n/* harmony import */ var _app_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./app.js */ \"./app.js\");\n// Button Functions\n\n\n\nconst menu = document.getElementById(\"change-chart\");\n\n// This function queries the Twitter API when \n// a selection has been made from the dropdown menu\n\nconst dropDown = (event) => {\n\n  document.getElementById(\"vis\").innerHTML = \"\";\n  d3.json(`/api/global_trends/${menu.value}`).then(_app_js__WEBPACK_IMPORTED_MODULE_0__[\"display\"]);\n  console.log(`${menu.value} has loaded`)\n\n}\n\nmenu.addEventListener(\"change\", dropDown);\n\n//# sourceURL=webpack:///./button.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"dropDown\", function() { return dropDown; });\n/* harmony import */ var _app_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./app.js */ \"./app.js\");\n// Button Functions\n\n\n\nconst menu = document.getElementById(\"change-chart\");\n\n// This function queries the Twitter API when \n// a selection has been made from the dropdown menu\n\nconst dropDown = (event) => {\n  document.getElementById(\"vis\").innerHTML = \"\";\n  d3.json(`/api/global_trends/${menu.value}`).then(_app_js__WEBPACK_IMPORTED_MODULE_0__[\"display\"]);\n}\n\nmenu.addEventListener(\"change\", dropDown);\n\n//# sourceURL=webpack:///./button.js?");
 
 /***/ }),
 

@@ -8,11 +8,8 @@ const menu = document.getElementById("change-chart");
 // a selection has been made from the dropdown menu
 
 export const dropDown = (event) => {
-
   document.getElementById("vis").innerHTML = "";
   d3.json(`/api/global_trends/${menu.value}`).then(display);
-  console.log(`${menu.value} has loaded`)
-
 }
 
 menu.addEventListener("change", dropDown);
