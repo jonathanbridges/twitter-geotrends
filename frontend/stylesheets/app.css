@@ -1,11 +1,15 @@
+html {
+  font-size: 16px;
+}
+
 body {
   display: flex;
   font-family: 'Raleway', sans-serif;
-  font-size: 1rem;
   color: #109BF2;
   line-height: 1.1;
   -webkit-font-smoothing: antialiased;
-  background: #15202a;
+  background: radial-gradient(circle at bottom center, #15202a 15px, #0a344e)
+
 }
 
 aside {
@@ -18,7 +22,14 @@ aside {
   height: 100vh;
 }
 
+.header {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
 .deets-wrapper {
+  font-size: 1.5rem;
   box-shadow: 0 1px 2px rgba(255, 255, 255, 0.15);
   border: 2px solid;
   border-radius: 5px;
@@ -39,12 +50,12 @@ label {
 }
 
 h1 {
-  font-size: 2rem;
+  font-size: 3.5rem;
   font-weight: bold;
 }
 
 h2 {
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: bold;
 }
 
@@ -59,6 +70,7 @@ main {
   margin: 0 1em;
   height: 100vh;
   width: 66%;
+  /* background: radial-gradient(circle at 100%, #15202a, #e66465 50%, #15202a 100%) */
 }
 
 .data-wrapper {
