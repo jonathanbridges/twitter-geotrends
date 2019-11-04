@@ -5,5 +5,10 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js'
+  },
+  devtool: 'source-map',
+  watchOptions: {
+    poll: true,
+    ignored: /node_modules/
   }
 };

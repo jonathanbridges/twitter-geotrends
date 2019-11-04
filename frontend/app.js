@@ -66,6 +66,10 @@ function bubbleChart() {
     // Use the max total_amount in the data as the max in the scale's domain
     let maxAmount = d3.max(rawData, function (d) { return d.tweet_volume; });
 
+    if (maxAmount === undefined) {
+      maxAmount = 500000;
+    }
+
     // Sizes bubbles based on area
     let radiusScale = d3.scalePow()
       .exponent(0.5)
@@ -76,7 +80,7 @@ function bubbleChart() {
     // If API returns null values assign values
     let myNodes = rawData.map((d, index) => {
       if (d.tweet_volume === null) {
-        d.tweet_volume = Math.floor(Math.random() * ((maxAmount/6) - 1000 + 1)) + 1000
+        d.tweet_volume = Math.floor(Math.random() * ((maxAmount/2.5) - 500 + 1)) + 500
       }
 
       return {
