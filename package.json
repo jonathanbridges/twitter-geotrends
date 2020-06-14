@@ -19,13 +19,13 @@
   },
   "homepage": "https://github.com/jonathanbridges/twitter-geotrends#readme",
   "dependencies": {
-    "axios": "^0.19.0",
+    "axios": "^0.19.2",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
-    "router": "^1.3.3"
+    "router": "^1.3.5"
   },
   "devDependencies": {
-    "nodemon": "^1.19.1",
-    "webpack": "^4.36.1"
+    "nodemon": "^1.19.4",
+    "webpack": "^4.43.0"
   }
 }
