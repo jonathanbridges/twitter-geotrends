@@ -19,7 +19,7 @@ The motivation for this project stems from my interest in world events and what 
 * D3.js
   * Data visualization
 * Express/Node.js 
-  * Avoid CORS issues for calls to the Twitter `Trends` and `Search` API endpoints
+  * Handles calls to the Twitter `Trends` and `Search` API endpoints
 
 ### Development timeline
 
